@@ -7,9 +7,8 @@
 #define BAS 80
 #define GAUCHE 75
 #define DROITE 77
-//Définition des dimensions du plateau
-#define MAX_LONGUEUR_PLATEAU 252
-#define MAX_HAUTEUR_PLATEAU 52
+#define MAX_LONGUEUR_PLATEAU 251
+#define MAX_HAUTEUR_PLATEAU 51
 
 //Structure de base pour les coordonnées d'un point
 struct Point {
@@ -29,7 +28,7 @@ struct Snake {
 
 //La structure déterminant le plateau via une matrice 
 struct Plateau {
-	int Coord[MAX_HAUTEUR_PLATEAU][MAX_LONGUEUR_PLATEAU]; 
+	int Coord[MAX_HAUTEUR_PLATEAU][MAX_LONGUEUR_PLATEAU];
 	struct Point centre; //Le serpent apparait à ce point, situé à peu près au centre du plateau
 };
 
@@ -49,14 +48,13 @@ void chargerPlateau() {
 
 		}
 	}
-
-	// 
-
 }
+
+
 
 //Structure générant le labyrinthe
 struct Plateau genererLabyrinthe() {
-
+	//TO DO
 }
 int main() {
 	chargerPlateau();
