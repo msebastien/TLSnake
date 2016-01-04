@@ -6,8 +6,8 @@
 #define BAS 80
 #define GAUCHE 75
 #define DROITE 77
-#define MAX_LONGUEUR_PLATEAU 251
-#define MAX_HAUTEUR_PLATEAU 51
+#define MAX_LONGUEUR_PLATEAU 250
+#define MAX_HAUTEUR_PLATEAU 50
 
 struct Point {
 	int x;
@@ -44,13 +44,12 @@ void chargerPlateau() {
 
 		}
 	}
-
-	// 
-
 }
 
-struct Plateau genererLabyrinthe() {
 
+
+struct Plateau genererLabyrinthe() {
+	//TO DO
 }
 int main() {
 	chargerPlateau();
