@@ -28,7 +28,7 @@ struct Plateau {
 	struct Point centre;
 };
 
-
+// Charge les données du plateau
 void chargerPlateau() {
 	int i, j;
 	struct Plateau carte;
@@ -47,7 +47,7 @@ void chargerPlateau() {
 }
 
 
-
+// Génère le labyrinthe sur le plateau. 
 struct Plateau genererLabyrinthe() {
 	//TO DO
 }
