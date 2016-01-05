@@ -77,7 +77,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="affichage.cpp" />
+    <ClCompile Include="jeu.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="snake.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="affichage.h" />
+    <ClInclude Include="jeu.h" />
+    <ClInclude Include="snake.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
