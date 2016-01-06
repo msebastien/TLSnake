@@ -20,6 +20,3 @@ struct Plateau spawnSnake(struct Plateau p) {
 	return p;
 }
 
-struct Point bouger() {
-	
-}

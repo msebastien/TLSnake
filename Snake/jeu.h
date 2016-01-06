@@ -25,7 +25,7 @@ struct Snake {
 
 //La structure déterminant le plateau via une matrice 
 struct Plateau {
-	int Coord[MAX_LIGNE][MAX_COL];
+	char Coord[MAX_LIGNE][MAX_COL];
 	struct Point centre; //Le serpent apparait à ce point, situé à peu près au centre du plateau
 };
 

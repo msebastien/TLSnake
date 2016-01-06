@@ -11,16 +11,16 @@ struct Plateau chargerPlateau(struct Plateau p) {
 	
 	// Lignes verticales
 	for(i = 0; i < MAX_LIGNE; i++) {	
-		p.Coord[i][0] = MUR;
-		p.Coord[i][MAX_COL-1] = MUR;
+		p.Coord[i][0] = 281;
+		p.Coord[i][50] = 281;
 		
 	}
 
 	// Lignes horizontales
 	for (j = 0; j < MAX_COL; j++) {
 
-		p.Coord[0][j] = MUR;
-		p.Coord[MAX_LIGNE-1][j] = MUR;
+		p.Coord[0][j] = 281;
+		p.Coord[50][j] = 281;
 
 	}
 	// On définit le centre
