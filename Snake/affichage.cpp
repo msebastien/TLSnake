@@ -8,17 +8,15 @@ void afficherPlateau(struct Plateau p) {
 	int i, j;
 
 	// Affichage des murs, des obstacles...
-	for (i = 0; i < MAX_LONGUEUR_PLATEAU; i++) {
-		for (j = 0; j < MAX_HAUTEUR_PLATEAU; i++) {
+	for (i = 0; i < MAX_LIGNE; i++) {
+		for (j = 0; j < MAX_COL; j++) {
 
-			switch (p.Coord[j][i]) {
+			switch (p.Coord[i][j]) {
 			case FRUIT:
 				printf("%c", FRUIT_CHAR);
-				break;
-
+				
 			case MUR:
 				printf("%c", MUR_CHAR);
-				break;
 
 			default:
 				printf("%c", VIDE_CHAR);
@@ -29,4 +27,5 @@ void afficherPlateau(struct Plateau p) {
 		}
 
 	}
+	printf("\n");
 }

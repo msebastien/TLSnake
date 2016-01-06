@@ -2,15 +2,23 @@
 #include <stdio.h>
 #include <time.h>
 #include "jeu.h"
+#include "affichage.h"
+#include "main.h"
 
 
 int main() {
-	//Menu_Principal();
-	chargerPlateau();
+	struct Plateau carte;
 	
+	chargerPlateau(carte);
 	
+	//creerNiveauUn(carte);
+
+	afficherPlateau(carte);
+		
+
+
+	return 0;	
 	
-	return 0;
 }
 
 /*A AVOIR

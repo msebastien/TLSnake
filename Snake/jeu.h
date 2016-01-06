@@ -1,8 +1,8 @@
 #ifndef JEU_H
 #define JEU_H
 
-#define MAX_LONGUEUR_PLATEAU 200
-#define MAX_HAUTEUR_PLATEAU 100
+#define MAX_COL 50
+#define MAX_LIGNE 25
 #define FRUIT 0
 #define MUR 1
 
@@ -25,11 +25,11 @@ struct Snake {
 
 //La structure déterminant le plateau via une matrice 
 struct Plateau {
-	int Coord[MAX_HAUTEUR_PLATEAU][MAX_LONGUEUR_PLATEAU];
+	int Coord[MAX_LIGNE][MAX_COL];
 	struct Point centre; //Le serpent apparait à ce point, situé à peu près au centre du plateau
 };
 
-extern struct Plateau chargerPlateau(void);
-extern void creerNiveauUn(struct Plateau);
+struct Plateau chargerPlateau(struct Plateau);
+void creerNiveauUn(struct Plateau);
 
 #endif /* JEU_H */

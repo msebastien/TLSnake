@@ -7,7 +7,7 @@
 #define VIDE_CHAR 32
 #define FRUIT_CHAR 64
 
-extern void afficherPlateau(struct Plateau);
+void afficherPlateau(struct Plateau);
 
 #endif /* AFFICHAGE_H */
 
