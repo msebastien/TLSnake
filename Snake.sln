@@ -1,18 +1,26 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Snake", "Snake\Snake.vcxproj", "{5C3FA5EF-C2B2-417F-967C-EA3990650607}"
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Snake", "Snake-final\Snake-final.vcxproj", "{7A69528E-3DAD-4A5F-BEE7-E1C74D7F6D15}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Win32 = Debug|Win32
-		Release|Win32 = Release|Win32
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5C3FA5EF-C2B2-417F-967C-EA3990650607}.Debug|Win32.ActiveCfg = Debug|Win32
-		{5C3FA5EF-C2B2-417F-967C-EA3990650607}.Debug|Win32.Build.0 = Debug|Win32
-		{5C3FA5EF-C2B2-417F-967C-EA3990650607}.Release|Win32.ActiveCfg = Release|Win32
-		{5C3FA5EF-C2B2-417F-967C-EA3990650607}.Release|Win32.Build.0 = Release|Win32
+		{7A69528E-3DAD-4A5F-BEE7-E1C74D7F6D15}.Debug|x64.ActiveCfg = Debug|x64
+		{7A69528E-3DAD-4A5F-BEE7-E1C74D7F6D15}.Debug|x64.Build.0 = Debug|x64
+		{7A69528E-3DAD-4A5F-BEE7-E1C74D7F6D15}.Debug|x86.ActiveCfg = Debug|Win32
+		{7A69528E-3DAD-4A5F-BEE7-E1C74D7F6D15}.Debug|x86.Build.0 = Debug|Win32
+		{7A69528E-3DAD-4A5F-BEE7-E1C74D7F6D15}.Release|x64.ActiveCfg = Release|x64
+		{7A69528E-3DAD-4A5F-BEE7-E1C74D7F6D15}.Release|x64.Build.0 = Release|x64
+		{7A69528E-3DAD-4A5F-BEE7-E1C74D7F6D15}.Release|x86.ActiveCfg = Release|Win32
+		{7A69528E-3DAD-4A5F-BEE7-E1C74D7F6D15}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
