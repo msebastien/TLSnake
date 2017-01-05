@@ -17,6 +17,7 @@
 struct Fruit {
 	int x, y;
 };
+typedef struct Fruit Fruit;
 
 int Random(int, int);
 Fruit Fruit_manger(char plateau[BLOCS_LARGEUR][BLOCS_HAUTEUR], struct Fruit);

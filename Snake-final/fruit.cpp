@@ -28,8 +28,8 @@ int Random(int a, int b) {
 Fruit Fruit_manger(char plateau[BLOCS_LARGEUR][BLOCS_HAUTEUR], Fruit fruit) {
 
 	while (plateau[fruit.y][fruit.x] == '&') {
-		fruit.x = Random(1, 60);
-		fruit.y = Random(1, 30);
+		fruit.x = Random(1, BLOCS_LARGEUR);
+		fruit.y = Random(1, BLOCS_HAUTEUR);
 	}
 	return fruit;
 }

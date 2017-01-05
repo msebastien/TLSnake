@@ -4,6 +4,23 @@
 #include "snake.h"
 #include "fruit.h"
 
+void afficher_menu(int *choixMenu)
+{
+	printf("----------------------\n");
+	printf("| Bienvenue dans Snake |\n");
+	printf("----------------------\n\n");
+	printf("---------------------------- Menu ----------------------------\n\n");
+	printf("1 - Mode 1 : Deplacement manuel dans un labyrinthe\n");
+	printf("2 - Mode 2 : Serpent en mouvement\n");
+	printf("3 - Mode 3 : Serpent en mouvement a travers les murs\n");
+	printf("4 - High Score\n");
+	printf("5 - Aide\n");
+	printf("6 - Sortie\n");
+	printf("--------------------------------------------------------------\n\n");
+	printf("Quel est votre choix?\n");
+	scanf("%d", choixMenu);
+}
+
 /*
 * Procédure : afficherGameOver
 *
@@ -44,9 +61,9 @@ void afficherGameOver(int score, Serpent serpent) {
 		switch (choix) {
 		case 1:
 			reinitialisation(serpent);
-			niveau_debutant();
+			niveau1();
 			break;
-		case 2:
+		case 2: exit(0);
 			break;
 		default:
 			afficherGameOver(score, serpent);
@@ -60,7 +77,7 @@ void afficherGameOver(int score, Serpent serpent) {
 * Procédure : niveau_debutant
 *	Initialise le niveau et donc la position du serpent, la possibilité de le déplacer, ...
 */
-void niveau_debutant() {
+void niveau1() {
 	char plateau[BLOCS_LARGEUR][BLOCS_HAUTEUR];
 	Serpent serpent;
 	Fruit fruit;
@@ -77,10 +94,67 @@ void niveau_debutant() {
 		serpent.queue.tab[i].y = 5;
 	}
 
-	Direction(plateau, serpent, fruit);
+	Direction1(plateau, serpent, fruit);
+}
+
+void niveau2() {
+	char plateau[BLOCS_LARGEUR][BLOCS_HAUTEUR];
+	Serpent serpent;
+	Fruit fruit;
+	fruit.x = 13;
+	fruit.y = 13;
+
+	serpent.queue.longueur_queue = 3;
+	serpent.tete.x = 10;
+	serpent.tete.y = 5;
+
+	for (int i = 0; i < serpent.queue.longueur_queue; i++)
+	{
+		serpent.queue.tab[i].x = 10 - i - 1;
+		serpent.queue.tab[i].y = 5;
+	}
+	
+	Direction2(plateau, serpent, fruit);
+
 }
 
 int main() {
-	niveau_debutant();
+	// DEFINITION DES VARIABLES
+	int choixMenu;
+
+	// MENU
+	afficher_menu(&choixMenu);
+	switch (choixMenu)
+	{
+	case 1:
+		system("cls");
+		niveau1();
+		break;
+	case 2:
+		system("cls");
+		niveau2();
+		break;
+	case 3:
+		system("cls");
+		printf("Vous avez choisi le mode 3.\n\n");
+		break;
+	case 4:
+		system("cls");
+		printf("Vous avez choisi de voir les high score.\n\n");
+		break;
+	case 5:
+		system("cls");
+		printf("Vous avez choisi l'aide.\n\n");
+		printf("Le but du jeu est de manger le plus de pommes avec votre serpent. Celui-ci grandit au fur et a mesure que vous en manger.\nAttention, si vous vous touchez avec le serpent ou si vous touchez un mur vous perdez !\n\nPour vous deplacer utlisez les touches Z, Q, S, D, de votres clavier.\nAppuyez sur espace pour mettre le jeu sur pause.\n\n");
+		//retour_Menu();
+		break;
+	case 6:
+		printf("Sortie\n\n");
+		return 0;
+		break;
+	default:
+		printf("Vous n'avez pas selectionné un menu qui existe. Veuillez entrer 1, 2, 3, 4, 5 ou 6 svp\n\n");
+		break;
+	}
 	return 0;
 }

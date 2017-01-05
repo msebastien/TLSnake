@@ -167,17 +167,16 @@ void afficheSerpent(char plateau[BLOCS_LARGEUR][BLOCS_HAUTEUR], Serpent serpent)
 * Si mort = 1, le jeu fait appel au game over (fonction ci-après), sinon, il relance la boucle while(1) qui est la boucle infinie faisant appel au switch.
 * Un compte à rebours est également présent, car le serpent meurt si compte_rebours = 0.
 */
-void Direction(char t[BLOCS_LARGEUR][BLOCS_HAUTEUR], Serpent serpent, Fruit fruit) {
+void Direction1(char t[BLOCS_LARGEUR][BLOCS_HAUTEUR], Serpent serpent, Fruit fruit) {
 	int score = 0, mort = 0, compteur_fruits = 5, fruit_1, fruit_2, fruit_3, fruit_4, fruit_5, delai = 0, i;
 	int compte_rebours = 150;
 	fruit_1 = fruit_2 = fruit_3 = fruit_4 = fruit_5 = 0;
 	
 	while (1) {
 		while (mort == 0 && compteur_fruits > 0) {
-			while ((kbhit() == 0) && mort == 0) {
-				construirePlateau(t, serpent, &fruit_1, &fruit_2, &fruit_3, &fruit_4, &fruit_5);
-				printf("Temps restant : %d secondes \n", compte_rebours);
-				printf("Vous avez %d points \n", score);
+			construirePlateau(t, serpent, &fruit_1, &fruit_2, &fruit_3, &fruit_4, &fruit_5);
+			while ((kbhit() == 0) && mort == 0) {	
+				printf("                  Temps restant : %2i\r", compte_rebours);
 
 				delai = delai++;
 				if (delai == 10) {
@@ -189,7 +188,6 @@ void Direction(char t[BLOCS_LARGEUR][BLOCS_HAUTEUR], Serpent serpent, Fruit frui
 					mort = 1;
 				}
 			}
-			if (mort == 0) {
 				char touche = getch();
 				switch (touche) {
 				case 'z':
@@ -234,7 +232,89 @@ void Direction(char t[BLOCS_LARGEUR][BLOCS_HAUTEUR], Serpent serpent, Fruit frui
 					mort = 1;
 				}
 			}
+		afficherGameOver(score, serpent);
+		}
+}
+
+void Direction2(char t[BLOCS_LARGEUR][BLOCS_HAUTEUR], Serpent serpent, Fruit fruit) {
+	int score = 0, mort = 0, compteur_fruits = 5, fruit_1, fruit_2, fruit_3, fruit_4, fruit_5, delai = 0, i;
+	int compte_rebours = 150;
+	fruit_1 = fruit_2 = fruit_3 = fruit_4 = fruit_5 = 0;
+
+	while (1) {
+		while (mort == 0 && compteur_fruits > 0) {
+			construirePlateau(t, serpent, &fruit_1, &fruit_2, &fruit_3, &fruit_4, &fruit_5);
+
+			while ((kbhit() == 0) && mort == 0) {
+				printf("               Temps restant : %2i\r", compte_rebours);
+				//printf("%2i\r", temps);
+
+				// COMPTE A REBOURS
+				delai = delai++;
+				if (delai == 10) {
+					compte_rebours--;
+					delai = 0;
+				}
+				Sleep(100);
+				if (compte_rebours == 0) {
+					mort = 1;
+				}
+			}
+			char touche = getch();
+			switch (touche) {
+			case 'z':
+				if (!(((serpent.tete.y - 1) == (serpent.queue.tab[0].y)) && ((serpent.tete.x) == (serpent.queue.tab[0].x)))) {
+					serpent = deplacer_haut(t, serpent);
+					while (kbhit() == 0) {
+						serpent = deplacer_haut(t, serpent);
+						
+					}
+					touche = getch();
+				}
+				break;
+			case 's':
+				if (!(((serpent.tete.y + 1) == (serpent.queue.tab[0].y)) && ((serpent.tete.x) == (serpent.queue.tab[0].x)))) {
+					serpent = deplacer_bas(t, serpent);
+					while (kbhit() == 0) {
+						serpent = deplacer_bas(t, serpent);
+					}
+					touche = getch();
+				}
+				break;
+			case 'q':
+				if (!(((serpent.tete.y) == (serpent.queue.tab[0].y)) && ((serpent.tete.x - 1) == (serpent.queue.tab[0].x)))) {
+					serpent = deplacer_gauche(t, serpent);
+				}
+				break;
+			case 'd':
+				if (!(((serpent.tete.y) == (serpent.queue.tab[0].y)) && ((serpent.tete.x + 1) == (serpent.queue.tab[0].x)))) {
+					serpent = deplacer_droite(t, serpent);
+				}
+				break;
+			default:
+				break;
+
+				if (t[serpent.tete.y][serpent.tete.x] == FRUIT) {
+					printf("\a");
+					compteur_fruits--;
+					score = score++;
+					serpent = GrandirQueue(serpent);
+				}
+				for (i = 0; i < serpent.queue.longueur_queue; i++) {}
+				if (serpent.tete.y == serpent.queue.tab[i].y) {
+					if (serpent.tete.x == serpent.queue.tab[i].x) {
+						mort = 1;
+					}
+				}
+				if (serpent.tete.y == 0 || serpent.tete.y == 29 || serpent.tete.x == 0 || serpent.tete.x == 59) {
+					mort = 1;
+				}
+				if (t[serpent.tete.y][serpent.tete.x] == '&') {
+					mort = 1;
+				}
+			}
 		}
 		afficherGameOver(score, serpent);
 	}
+
 }

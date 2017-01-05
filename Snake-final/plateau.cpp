@@ -36,18 +36,18 @@ void construirePlateau(char plateau[BLOCS_LARGEUR][BLOCS_HAUTEUR], Serpent serpe
 
 	// Génération des bordures du plateau
 	for (i = 0; i < 30; i++) {
-		plateau[i][0] = 219;
-		plateau[i][59] = 219;
+		plateau[i][0] = MUR;
+		plateau[i][59] = MUR;
 	}
 
 	for (j = 0; j < 60; j++) {
-		plateau[0][j] = 219;
-		plateau[29][j] = 219;
+		plateau[0][j] = MUR;
+		plateau[29][j] = MUR;
 	}
 
 	for (i = 1; i < 29; i++) {
 		for (j = 1; j < 59; j++) {
-			plateau[i][j] = 0;
+			plateau[i][j] = VIDE;
 		}
 	}
 	plateau[12][18] = FRUIT;

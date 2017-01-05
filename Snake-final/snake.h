@@ -29,15 +29,17 @@ struct Serpent {
 	struct Queue_serpent queue;
 	int fruits;
 };
+typedef struct Serpent Serpent;
 
-struct Serpent GrandirQueue(Serpent);
-void afficheSerpent(char plateau[BLOCS_LARGEUR][BLOCS_HAUTEUR], struct Serpent);
-void Direction(char t[BLOCS_LARGEUR][BLOCS_HAUTEUR], struct Serpent, struct Fruit);
+Serpent GrandirQueue(Serpent);
+void afficheSerpent(char plateau[BLOCS_LARGEUR][BLOCS_HAUTEUR], Serpent);
+void Direction1(char t[BLOCS_LARGEUR][BLOCS_HAUTEUR], struct Serpent, struct Fruit);
+void Direction2(char t[BLOCS_LARGEUR][BLOCS_HAUTEUR], Serpent, Fruit);
 void reinitialisation(Serpent);
 
-struct Serpent deplacer_gauche(char plateau[BLOCS_LARGEUR][BLOCS_HAUTEUR], struct Serpent);
-struct Serpent deplacer_droite(char plateau[BLOCS_LARGEUR][BLOCS_HAUTEUR], struct Serpent);
-struct Serpent deplacer_haut(char plateau[BLOCS_LARGEUR][BLOCS_HAUTEUR], struct Serpent);
-struct Serpent deplacer_bas(char plateau[BLOCS_LARGEUR][BLOCS_HAUTEUR], struct Serpent);
+Serpent deplacer_gauche(char plateau[BLOCS_LARGEUR][BLOCS_HAUTEUR], Serpent);
+Serpent deplacer_droite(char plateau[BLOCS_LARGEUR][BLOCS_HAUTEUR], Serpent);
+Serpent deplacer_haut(char plateau[BLOCS_LARGEUR][BLOCS_HAUTEUR], Serpent);
+Serpent deplacer_bas(char plateau[BLOCS_LARGEUR][BLOCS_HAUTEUR], Serpent);
 
 #endif /* SNAKE_H */
